@@ -1,0 +1,2 @@
+serviceClass: com.instajet.gwt.client.service.InstajetService
+path: 9F915BE35610A369FE894618DC066F60.gwt.rpc
