@@ -8,17 +8,14 @@
 	<g:HTMLPanel>
 
 		<m:MaterialContainer>
-			
-			<!-- <m:MaterialButton ui:field="btn" text="Send" 
-				textColor="BLACK" />-->
-
 		</m:MaterialContainer>
 		<m:MaterialRow>
 		<m:MaterialColumn grid="s6" offset="s3">
 		<m:MaterialCard backgroundColor="BLUE_GREY_DARKEN_1">
             <m:MaterialCardContent textColor="WHITE">
-              <m:MaterialCardTitle text="RPC Connection" iconType="PHONE" iconPosition="RIGHT"/>
-              <m:MaterialTextBox ui:field="textbox" label="First Name" />
+              <m:MaterialCardTitle text="RPC Connection"/>
+              <m:MaterialTextBox ui:field="username" label="Username" />
+              <m:MaterialTextBox ui:field="password" label="Password" type="PASSWORD"/>
             </m:MaterialCardContent>
             <m:MaterialCardAction>
               <m:MaterialLink ui:field="btn" text="Send" iconType="SEND" iconPosition="LEFT"/>

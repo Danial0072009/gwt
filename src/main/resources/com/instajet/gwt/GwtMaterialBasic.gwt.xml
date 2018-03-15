@@ -23,10 +23,7 @@
         "http://gwtproject.org/doctype/2.7.0/gwt-module.dtd">
 <module rename-to='GwtMaterialBasic'>
     <inherits name='com.google.gwt.user.User'/>
-   <!--  <inherits name="com.gwtplatform.mvp.MvpWithEntryPoint"/> -->
-
     
-
     <!-- Specify the paths for translatable code                    -->
     <source path='client'/>
     <source path='shared'/>
@@ -42,7 +39,7 @@
     <entry-point class='com.instajet.gwt.client.ui.InstajetUi'/>
 
     
-        <!-- Dev Properties -->
+    <!-- Dev Properties -->
     <set-property name="gwt.logging.logLevel" value="ALL" />
     <set-property name="gwt.logging.developmentModeHandler" value="ENABLED" />
 

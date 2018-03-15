@@ -10,6 +10,7 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
+import com.instajet.gwt.client.module.User;
 import com.instajet.gwt.client.service.InstajetService;
 import com.instajet.gwt.client.service.InstajetServiceAsync;
 import com.instajet.gwt.shared.FieldVerifier;
@@ -21,7 +22,10 @@ import gwt.material.design.client.ui.MaterialToast;
 public class InstajetUi  extends Composite implements EntryPoint{
 	
 	@UiField 
-	MaterialTextBox textbox;
+	MaterialTextBox username;
+	
+	@UiField 
+	MaterialTextBox password;
 
 	@UiField 
 	MaterialLink btn;
@@ -50,25 +54,27 @@ public class InstajetUi  extends Composite implements EntryPoint{
 	}
 	
 	private void sendNameToServer() {
-		// First, we validate the input.
-		String name = textbox.getText();
-		if (!FieldVerifier.isValidName(name)) {
+		String user = username.getText();
+		String pass = password.getText();
+		if (!FieldVerifier.isValidName(user)) {
 			MaterialToast.fireToast("Please Enter at least 4 characters");
 			return;
 		}
 		
-		instajetService.instajetServer(name, new AsyncCallback<String>() {
+		String[] u = new String[2];
+		u[0] = user;
+		u[1] = pass;
+				
+		instajetService.instajetServer(u, new AsyncCallback<String[]>() {
 
 			@Override
 			public void onFailure(Throwable caught) {
-				// TODO Auto-generated method stub
 				MaterialToast.fireToast(SERVER_ERROR);
 			}
 
 			@Override
-			public void onSuccess(String result) {
-				// TODO Auto-generated method stub
-				MaterialToast.fireToast("Remote Procedure Call Stablished");
+			public void onSuccess(String[] result) {
+				MaterialToast.fireToast("Username" + result[0] + "Password" + result[1]);
 			}
 		});
 		}
