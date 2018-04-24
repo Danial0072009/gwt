@@ -6,5 +6,5 @@ import com.instajet.gwt.client.module.User;
 
 @RemoteServiceRelativePath("instajetService")
 public interface InstajetService extends RemoteService{
-	String[] instajetServer(String[] u) throws IllegalArgumentException;
+	User instajetServer(User user) throws IllegalArgumentException;
 }

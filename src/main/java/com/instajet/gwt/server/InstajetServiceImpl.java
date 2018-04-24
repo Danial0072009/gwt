@@ -8,8 +8,11 @@ import com.instajet.gwt.shared.FieldVerifier;
 @SuppressWarnings("serial")
 public class InstajetServiceImpl extends RemoteServiceServlet implements InstajetService{
 
+
+
 	@Override
-	public String[] instajetServer(String[] user) throws IllegalArgumentException {
+	public User instajetServer(User user) throws IllegalArgumentException{
+
 		return user;
 	}
 

@@ -22,10 +22,10 @@ import gwt.material.design.client.ui.MaterialToast;
 public class InstajetUi  extends Composite implements EntryPoint{
 	
 	@UiField 
-	MaterialTextBox username;
+	MaterialTextBox userNameField;
 	
 	@UiField 
-	MaterialTextBox password;
+	MaterialTextBox passwordField;
 
 	@UiField 
 	MaterialLink btn;
@@ -54,18 +54,16 @@ public class InstajetUi  extends Composite implements EntryPoint{
 	}
 	
 	private void sendNameToServer() {
-		String user = username.getText();
-		String pass = password.getText();
-		if (!FieldVerifier.isValidName(user)) {
+		String username = userNameField.getText();
+		String password = passwordField.getText();
+		
+		if (!FieldVerifier.isValidName(username)) {
 			MaterialToast.fireToast("Please Enter at least 4 characters");
 			return;
 		}
-		
-		String[] u = new String[2];
-		u[0] = user;
-		u[1] = pass;
+		User user = new User(username, password);
 				
-		instajetService.instajetServer(u, new AsyncCallback<String[]>() {
+		instajetService.instajetServer(user, new AsyncCallback<User>() {
 
 			@Override
 			public void onFailure(Throwable caught) {
@@ -73,8 +71,9 @@ public class InstajetUi  extends Composite implements EntryPoint{
 			}
 
 			@Override
-			public void onSuccess(String[] result) {
-				MaterialToast.fireToast("Username" + result[0] + "Password" + result[1]);
+			public void onSuccess(User result) {
+				MaterialToast.fireToast("Succeed" );
+				
 			}
 		});
 		}
